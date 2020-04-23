@@ -33,6 +33,16 @@ class RankingListViewController: UIViewController {
     var absenceCounter: Int = 0
     var allPoints: Int = 0
 
+    var studentArray:[(
+    index:String,
+    mark:Double,
+    group:String,
+    lecturePoints:Int,
+    homeworkPoints:Int,
+    presenceCounter:Int,
+    absenceCounter:Int,
+    allPoints:Int)] = []
+
     
     
     override func viewDidLoad() {
@@ -52,9 +62,21 @@ class RankingListViewController: UIViewController {
                 let studentObj:[StudentData] = try JSONDecoder().decode([StudentData].self, from: data)
                 
                 for student in studentObj{
-                    print(student)
+                    self.studentArray.append((
+                        index: student.index,
+                        mark: student.mark,
+                        group: student.group,
+                        lecturePoints: student.lecturePoints,
+                        homeworkPoints: student.homeworkPoints,
+                        presenceCounter: student.presenceCounter,
+                        absenceCounter: student.absenceCounter,
+                        allPoints: student.absenceCounter
+                    ))
                 }
-
+                
+                for student in self.studentArray{
+                    print(student.absenceCounter)
+                }
                 
             }catch let jsonErr{
                 print(jsonErr)
