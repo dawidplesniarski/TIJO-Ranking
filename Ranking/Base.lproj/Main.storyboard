@@ -35,18 +35,32 @@
         <!--Ranking List View Controller-->
         <scene sceneID="M8n-d1-VEg">
             <objects>
-                <viewController id="nUW-0e-pnd" customClass="RankingListViewController" customModule="Ranking" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="nUW-0e-pnd" customClass="RankingListViewController" customModule="Ranking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iSC-Em-kEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="LabelCell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5uJ-36-3bm">
+                                <rect key="frame" x="20" y="87" width="374" height="775"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nUW-0e-pnd" id="0P0-Hu-egc"/>
+                                    <outlet property="delegate" destination="nUW-0e-pnd" id="kQK-Nn-ekw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="a0G-3S-qau"/>
                     </view>
                     <navigationItem key="navigationItem" id="kOE-qz-IVG"/>
+                    <connections>
+                        <outlet property="tableView" destination="5uJ-36-3bm" id="PTo-V3-a7M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQl-Sf-MJ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1146" y="-71"/>
+            <point key="canvasLocation" x="1144.9275362318842" y="-71.651785714285708"/>
         </scene>
     </scenes>
 </document>

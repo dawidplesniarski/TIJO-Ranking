@@ -22,8 +22,9 @@ let allPoints: Int
 
 }
 
-class RankingListViewController: UIViewController {
+class RankingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     var index: String = ""
     var mark: Double = 0.0
     var group: String = ""
@@ -47,6 +48,7 @@ class RankingListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
         loadJsonData()
         // Do any additional setup after loading the view.
     }
@@ -74,19 +76,32 @@ class RankingListViewController: UIViewController {
                     ))
                 }
                 
-                for student in self.studentArray{
-                    print(student.absenceCounter)
-                }
+                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                 
             }catch let jsonErr{
                 print(jsonErr)
             }
         }.resume()
     
-}
-//    self.forecastArray.append((
-//    temp: weatherCounter.main.temp,
-//    icon: weatherCounterNested.icon,
-//    description: weatherCounterNested.main
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         studentArray.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+         tableView.rowHeight = 93
+         let index = studentArray[indexPath.row].index
+         let mark = studentArray[indexPath.row].mark
+         let absenceCounter = studentArray[indexPath.row].absenceCounter
+         print(studentArray.count)
+         cell.textLabel!.numberOfLines = 3
+         cell.textLabel!.text = "\(index),\(mark),\(absenceCounter)"
 
+
+         return cell
+     }
+     
 }

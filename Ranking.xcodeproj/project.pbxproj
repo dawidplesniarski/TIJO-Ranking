@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F0F346B2452D30800C72EA2 /* RankingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0F346A2452D30800C72EA2 /* RankingListView.swift */; };
 		6F3023582451D9BA000C5A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3023572451D9BA000C5A95 /* AppDelegate.swift */; };
 		6F30235A2451D9BA000C5A95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3023592451D9BA000C5A95 /* SceneDelegate.swift */; };
 		6F30235C2451D9BA000C5A95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F30235B2451D9BA000C5A95 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F0F346A2452D30800C72EA2 /* RankingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingListView.swift; sourceTree = "<group>"; };
 		6F3023542451D9BA000C5A95 /* Ranking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ranking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F3023572451D9BA000C5A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F3023592451D9BA000C5A95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,25 +62,18 @@
 		6F3023562451D9BA000C5A95 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				6F30236B2451DB14000C5A95 /* Models */,
 				6F3023572451D9BA000C5A95 /* AppDelegate.swift */,
 				6F30236C2451DB35000C5A95 /* DataStructure.swift */,
 				6F3023592451D9BA000C5A95 /* SceneDelegate.swift */,
 				6F30236E2451DDDE000C5A95 /* RankingListViewController.swift */,
 				6F30235B2451D9BA000C5A95 /* ViewController.swift */,
+				6F0F346A2452D30800C72EA2 /* RankingListView.swift */,
 				6F30235D2451D9BA000C5A95 /* Main.storyboard */,
 				6F3023602451D9BF000C5A95 /* Assets.xcassets */,
 				6F3023622451D9BF000C5A95 /* LaunchScreen.storyboard */,
 				6F3023652451D9BF000C5A95 /* Info.plist */,
 			);
 			path = Ranking;
-			sourceTree = "<group>";
-		};
-		6F30236B2451DB14000C5A95 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F30236F2451DDDE000C5A95 /* RankingListViewController.swift in Sources */,
+				6F0F346B2452D30800C72EA2 /* RankingListView.swift in Sources */,
 				6F30235C2451D9BA000C5A95 /* ViewController.swift in Sources */,
 				6F30236D2451DB35000C5A95 /* DataStructure.swift in Sources */,
 				6F3023582451D9BA000C5A95 /* AppDelegate.swift in Sources */,
