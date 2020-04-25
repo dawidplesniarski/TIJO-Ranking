@@ -34,23 +34,12 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
     var absenceCounter: Int = 0
     var allPoints: Int = 0
 
-    var studentArray:[(
-    index:String,
-    mark:Double,
-    group:String,
-    lecturePoints:Int,
-    homeworkPoints:Int,
-    presenceCounter:Int,
-    absenceCounter:Int,
-    allPoints:Int)] = []
+    var studentArray: [StudentData] = []
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
+        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
         loadJsonData()
-        // Do any additional setup after loading the view.
     }
     
     func loadJsonData(){
@@ -64,16 +53,7 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
                 let studentObj:[StudentData] = try JSONDecoder().decode([StudentData].self, from: data)
                 
                 for student in studentObj{
-                    self.studentArray.append((
-                        index: student.index,
-                        mark: student.mark,
-                        group: student.group,
-                        lecturePoints: student.lecturePoints,
-                        homeworkPoints: student.homeworkPoints,
-                        presenceCounter: student.presenceCounter,
-                        absenceCounter: student.absenceCounter,
-                        allPoints: student.absenceCounter
-                    ))
+                    self.studentArray.append(student)
                 }
                 
                 DispatchQueue.main.async {
@@ -91,14 +71,30 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! TableViewCell
          tableView.rowHeight = 93
-         let index = studentArray[indexPath.row].index
-         let mark = studentArray[indexPath.row].mark
-         let absenceCounter = studentArray[indexPath.row].absenceCounter
-         print(studentArray.count)
-         cell.textLabel!.numberOfLines = 3
-         cell.textLabel!.text = "\(index),\(mark),\(absenceCounter)"
+        let index = studentArray[indexPath.row].index
+        let absenceCounter = studentArray[indexPath.row].absenceCounter
+        let mark = studentArray[indexPath.row].mark
+        let presence = studentArray[indexPath.row].presenceCounter
+        let homeworkPoints = studentArray[indexPath.row].homeworkPoints
+        let group = studentArray[indexPath.row].group
+        let lecturePoints = studentArray[indexPath.row].lecturePoints
+        let allPoints = studentArray[indexPath.row].allPoints
+        
+         
+//         print(studentArray.count)
+//         cell.textLabel!.numberOfLines = 3
+//         cell.textLabel!.text = "\(index),\(mark),\(absenceCounter)"
+        cell.index.text = index
+        cell.mark.text = String(mark)
+        cell.absence.text = String(absenceCounter)
+        cell.presence.text = String(presence)
+        cell.homeworkPoints.text = String(homeworkPoints)
+        cell.group.text = String(group)
+        cell.totalPoints.text = String(allPoints)
+        cell.lecturePoints.text = String(lecturePoints)
+        
 
 
          return cell
