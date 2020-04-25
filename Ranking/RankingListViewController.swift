@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 struct StudentData: Codable {
 let index: String
 let mark: Double
@@ -38,7 +36,6 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LabelCell")
         loadJsonData()
     }
     
@@ -57,15 +54,15 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
                 }
                 
                 DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                }
+                    self.tableView.reloadData()
+                }
                 
             }catch let jsonErr{
                 print(jsonErr)
             }
         }.resume()
-    
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          studentArray.count
      }
@@ -82,10 +79,7 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
         let lecturePoints = studentArray[indexPath.row].lecturePoints
         let allPoints = studentArray[indexPath.row].allPoints
         
-         
-//         print(studentArray.count)
-//         cell.textLabel!.numberOfLines = 3
-//         cell.textLabel!.text = "\(index),\(mark),\(absenceCounter)"
+
         cell.index.text = index
         cell.mark.text = String(mark)
         cell.absence.text = String(absenceCounter)
@@ -94,9 +88,7 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
         cell.group.text = String(group)
         cell.totalPoints.text = String(allPoints)
         cell.lecturePoints.text = String(lecturePoints)
-        
-
-
+    
          return cell
      }
      
