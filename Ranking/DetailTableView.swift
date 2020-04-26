@@ -31,11 +31,11 @@ class DetailTableView: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadJsonData(index: 30785)
-
+        loadJsonData(index: index)
     }
     
-    func loadJsonData(index: Int){
+    func loadJsonData(index: String){
+        print("loadJson \(index)")
         let jsonUrlString = "http://tomaszgadek.com/api/students/\(index)"
         guard let url = URL(string: jsonUrlString) else { return }
         

@@ -31,6 +31,7 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
     var presenceCounter: Int = 0
     var absenceCounter: Int = 0
     var allPoints: Int = 0
+    var indexForSegue: String = ""
 
     var studentArray: [StudentData] = []
 
@@ -38,6 +39,14 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         loadJsonData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "detailSegue"){
+            let detailVC = segue.destination as! DetailTableView
+            detailVC.index = indexForSegue
+        }
+    }
+    
     
     func loadJsonData(){
         let jsonUrlString = "http://tomaszgadek.com/api/students"
@@ -91,5 +100,26 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
     
          return cell
      }
-     
+//         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            let item = studentArray[indexPath.row].index
+//             print(item)
+//         }
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+{
+    let modifyAction = UIContextualAction(style: .normal, title:  "Details of \(self.studentArray[indexPath.row].index)", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            success(true)
+        })
+        modifyAction.image = UIImage(named: "hammer")
+        modifyAction.backgroundColor = .blue
+    
+    indexForSegue = studentArray[indexPath.row].index
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        self.performSegue(withIdentifier: "detailSegue", sender: nil)
+    }
+
 }
