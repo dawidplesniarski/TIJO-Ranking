@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var checkMarks: UIButton!
+    @IBOutlet weak var chooseIndex: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        checkMarks.layer.cornerRadius = 15
+        checkMarks.clipsToBounds = true
+        chooseIndex.layer.cornerRadius = 15
+        chooseIndex.clipsToBounds = true
     }
 
 
