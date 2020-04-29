@@ -12,7 +12,7 @@ class DetailCell: UITableViewCell {
 
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var group: UILabel!
-    @IBOutlet weak var presence: UILabel!
+    @IBOutlet weak var presenceImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
