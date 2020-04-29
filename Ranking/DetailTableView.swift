@@ -68,9 +68,9 @@ class DetailTableView: UIViewController, UITableViewDataSource, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
              tableView.rowHeight = 93
         indexLabel.text = "Index: \(index)"
-        groupLabel.text = "Group: \(group)"
-        cell.date.text = "Date: \(details[indexPath.row].dateOfLab)"
-        cell.group.text = "Points: \(String(details[indexPath.row].points))"
+        groupLabel.text = "Grupa: \(group)"
+        cell.date.text = "Data: \(details[indexPath.row].dateOfLab)"
+        cell.group.text = "Punkty: \(String(details[indexPath.row].points))"
         cell.presenceImage.image = UIImage(named:String(details[indexPath.row].presence))
         
         return cell

@@ -17,7 +17,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var homeworkPoints: UILabel!
     @IBOutlet weak var totalPoints: UILabel!
     @IBOutlet weak var absence: UILabel!
-    
     @IBOutlet weak var presence: UILabel!
     
     override func awakeFromNib() {

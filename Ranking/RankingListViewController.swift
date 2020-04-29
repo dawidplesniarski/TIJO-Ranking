@@ -78,7 +78,7 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! TableViewCell
-         tableView.rowHeight = 93
+         tableView.rowHeight = 120
         let index = studentArray[indexPath.row].index
         let absenceCounter = studentArray[indexPath.row].absenceCounter
         let mark = studentArray[indexPath.row].mark
@@ -89,14 +89,14 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
         let allPoints = studentArray[indexPath.row].allPoints
         
 
-        cell.index.text = index
-        cell.mark.text = String(mark)
-        cell.absence.text = String(absenceCounter)
-        cell.presence.text = String(presence)
-        cell.homeworkPoints.text = String(homeworkPoints)
-        cell.group.text = String(group)
-        cell.totalPoints.text = String(allPoints)
-        cell.lecturePoints.text = String(lecturePoints)
+        cell.index.text = "Index: \(index)"
+        cell.mark.text = "Ocena: \(String(mark))"
+        cell.absence.text = "Nieobecność: \(String(absenceCounter))"
+        cell.presence.text = "Obecność: \(String(presence))"
+        cell.homeworkPoints.text = "Lab: \(String(homeworkPoints))pkt"
+        cell.group.text = "Grupa: \(String(group))"
+        cell.totalPoints.text = "Punkty: \(String(allPoints))pkt"
+        cell.lecturePoints.text = "Wykład: \(String(lecturePoints))pkt"
     
          return cell
      }
