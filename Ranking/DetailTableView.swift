@@ -35,7 +35,6 @@ class DetailTableView: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func loadJsonData(index: String){
-        print("loadJson \(index)")
         let jsonUrlString = "http://tomaszgadek.com/api/students/\(index)"
         guard let url = URL(string: jsonUrlString) else { return }
         

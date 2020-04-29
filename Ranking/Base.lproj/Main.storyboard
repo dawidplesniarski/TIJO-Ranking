@@ -27,7 +27,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tVE-Hp-2t2" kind="show" id="7f9-Kv-4N6"/>
+                                    <action selector="showDetails:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="qWS-YM-aS8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="720-2h-pDn">
@@ -41,6 +41,14 @@
                                     <segue destination="nUW-0e-pnd" kind="show" id="y2S-Wx-fMp"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-oj-6bL">
+                                <rect key="frame" x="0.0" y="392" width="414" height="329"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="7c2-x8-6wx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="irW-1C-LWv"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,6 +56,8 @@
                     <connections>
                         <outlet property="checkMarks" destination="720-2h-pDn" id="5OX-mW-Wh8"/>
                         <outlet property="chooseIndex" destination="80y-Fy-lNv" id="ROY-Ky-mU8"/>
+                        <outlet property="pickerView" destination="m9f-oj-6bL" id="TCc-4r-mLt"/>
+                        <segue destination="tVE-Hp-2t2" kind="show" identifier="mainToDetail" id="yTR-bZ-AmK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -267,6 +277,6 @@
         <image name="Background" width="540" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gx7-xl-Ghm"/>
+        <segue reference="yTR-bZ-AmK"/>
     </inferredMetricsTieBreakers>
 </document>

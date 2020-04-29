@@ -17,7 +17,6 @@ let homeworkPoints: Int
 let presenceCounter: Int
 let absenceCounter: Int
 let allPoints: Int
-
 }
 
 class RankingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
