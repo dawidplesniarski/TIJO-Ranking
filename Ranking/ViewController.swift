@@ -21,7 +21,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var pickerView: UIPickerView!
     
     var albumNumbers: [String] = []
-    var indexNumber:String = ""
+    var indexNumber:String = "30785"
     
     @IBAction func showDetails(_ sender: Any) {
         self.performSegue(withIdentifier: "mainToDetail", sender: nil)
@@ -32,9 +32,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         checkMarks.clipsToBounds = true
         chooseIndex.layer.cornerRadius = 15
         chooseIndex.clipsToBounds = true
+        let color = UIColor(named:"Color")
+        let color1 = UIColor(named: "Color-1")
+        checkMarks.applyGradient(colours: [color!, color1!])
+        chooseIndex.applyGradient(colours: [color!, color1!])
+        pickerView.setValue(UIColor.white, forKeyPath: "textColor")
+        pickerView.layer.cornerRadius = 15
+        pickerView.clipsToBounds = true
         loadAlbums()
     }
     
+    
+        
     func loadAlbums(){
         let jsonUrlString = "http://tomaszgadek.com/api/students"
         guard let url = URL(string: jsonUrlString) else { return }
@@ -82,3 +91,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
 }
 
+extension UIView {
+    @discardableResult
+    func applyGradient(colours: [UIColor]) -> CAGradientLayer {
+        return self.applyGradient(colours: colours, locations: nil)
+    }
+
+    @discardableResult
+    func applyGradient(colours: [UIColor], locations: [NSNumber]?) -> CAGradientLayer {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colours.map { $0.cgColor }
+        gradient.locations = locations
+        self.layer.insertSublayer(gradient, at: 0)
+        return gradient
+    }
+}

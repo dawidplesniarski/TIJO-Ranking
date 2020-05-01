@@ -32,6 +32,7 @@
 		6F4209892454BDD50046C00E /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
 		6F42098B2454C2900046C00E /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		6F6F0AEE24546DE5000888BC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		6F9AA9EA245C33E400663596 /* FuturaLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaLight.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		6F3023562451D9BA000C5A95 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				6F9AA9E8245C33CA00663596 /* Fonts */,
 				6F3023572451D9BA000C5A95 /* AppDelegate.swift */,
 				6F3023592451D9BA000C5A95 /* SceneDelegate.swift */,
 				6F30236E2451DDDE000C5A95 /* RankingListViewController.swift */,
@@ -77,6 +79,14 @@
 				6F3023652451D9BF000C5A95 /* Info.plist */,
 			);
 			path = Ranking;
+			sourceTree = "<group>";
+		};
+		6F9AA9E8245C33CA00663596 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6F9AA9EA245C33E400663596 /* FuturaLight.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
