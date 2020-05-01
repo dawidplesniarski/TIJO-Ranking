@@ -71,13 +71,22 @@ class RankingListViewController: UIViewController, UITableViewDataSource, UITabl
         }.resume()
     }
     
+    @IBAction func backToMainScreen(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToMain", sender: nil)
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          studentArray.count
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! TableViewCell
-         tableView.rowHeight = 120
+         tableView.rowHeight = 170
+        
+        if((indexPath.row) % 2 == 0){
+                   cell.backgroundColor = UIColor(named: "Table1")!
+        }else{
+            cell.backgroundColor = UIColor(named: "Table2")!
+        }
         let index = studentArray[indexPath.row].index
         let absenceCounter = studentArray[indexPath.row].absenceCounter
         let mark = studentArray[indexPath.row].mark

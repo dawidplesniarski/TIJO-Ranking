@@ -31,8 +31,15 @@ class DetailTableView: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        indexLabel.layer.cornerRadius = 15
+        indexLabel.clipsToBounds = true
+        groupLabel.layer.cornerRadius = 15
+        groupLabel.clipsToBounds = true
+
+        
         loadJsonData(index: index)
     }
+    
     
     func loadJsonData(index: String){
         let jsonUrlString = "http://tomaszgadek.com/api/students/\(index)"
@@ -66,6 +73,11 @@ class DetailTableView: UIViewController, UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
              tableView.rowHeight = 93
+        if((indexPath.row) % 2 == 0){
+            cell.backgroundColor = UIColor(named: "Table1")!
+        }else{
+            cell.backgroundColor = UIColor(named: "Table2")!
+        }
         indexLabel.text = "Index: \(index)"
         groupLabel.text = "Grupa: \(group)"
         cell.date.text = "Data: \(details[indexPath.row].dateOfLab)"
